@@ -1,0 +1,90 @@
+{
+  "SIDEEFFECTS": {
+    "NAME": "Side Effects",
+    "EffectDirectory": {
+      "AddStatusEffect": "Adicionar aos Efeitos de Status",
+      "RemoveStatusEffect": "Remover dos Efeitos de Status",
+      "InvalidCompendiumId": "Side Effects | O Compêndio de Efeitos '{compendium}' é um ID de compêndio inválido. Por favor, corrija a configuração de Compêndio de Efeitos.",
+      "InvalidCompendium": "Side Effects | O Compêndio de Efeitos '{compendium}' é inválido ou não existe. Por favor, corrija o compêndio ou a configuração de Compêndio de Efeitos.",
+      "CreateCompendium": {
+        "Prompt": "O Compêndio de Efeitos '{compendiumId}' não existe. A Interface de Efeitos não será carregada. Deseja criar automaticamente um novo compêndio chamado '{compendiumName}' e recarregar?",
+        "Title": "Side Effects | Criar Compêndio de Efeitos"
+      },
+      "StatusEffectsFolder": {
+        "Name": "Efeitos de Status"
+      }
+    },
+    "Settings": {
+      "AddStatusEffects": {
+        "Name": "Adicionar Efeitos de Status",
+        "Hint": "Adiciona todos os Efeitos de Status ao Compêndio de Efeitos, uma única vez."
+      },
+      "DisableSpecialEffects": {
+        "Name": "Desativar Efeitos Especiais",
+        "Hint": "Quando ativado, as condições Cego e Invisível não aplicarão efeitos visuais."
+      },
+      "EffectCompendium": {
+        "Name": "ID do Compêndio de Efeitos",
+        "Hint": "O ID do Compêndio vinculado à Interface de Efeitos. Para copiar um ID de Compêndio, abra o compêndio e clique no livro no canto superior direito. Cole o ID aqui. O padrão é 'world.side-effects'."
+      },
+      "EffectInterfacePlacement": {
+        "Name": "Posição da Interface de Efeitos",
+        "Hint": "Aba da barra lateral após a qual a Interface de Efeitos será posicionada."
+      },
+      "EffectInterfaceEnabled": {
+        "Name": "Habilitar Interface de Efeitos",
+        "Hint": "Ativa a Interface de Efeitos, um diretório de documentos na barra lateral vinculado a um compêndio. Permite efeitos de status personalizados e o gerenciamento de efeitos."
+      },
+      "ExportForSharing": {
+        "Name": "Opção de Exportar para Compartilhamento",
+        "Hint": "Adiciona uma opção nos menus de contexto do diretório de itens e de atores para exportar sem descrições."
+      },
+      "HiddenCompendiums": {
+        "Name": "Compêndios Ocultos",
+        "Label": "Configurar Compêndios Ocultos",
+        "Hint": "Os compêndios selecionados não serão exibidos no diretório de compêndios."
+      },
+      "RemovedStatusEffects": {
+        "Name": "Efeitos de Status Removidos",
+        "Hint": "Selecione os efeitos de status a remover."
+      },
+      "RemoveStatusEffectsFromHud": {
+        "Name": "Remover Efeitos de Status da HUD do Token",
+        "Hint": "Impede que os efeitos de status selecionados apareçam na HUD do Token."
+      },
+      "ReplaceStatusEffectIcons": {
+        "Name": "Substituir Ícones de Efeitos de Status",
+        "Hint": "Substitui alguns ícones padrão de efeitos de status. As alterações feitas pela Interface de Efeitos ainda serão respeitadas."
+      },
+      "TemporaryEffectHud": {
+        "Name": "Efeitos Temporários na HUD do Token",
+        "Hint": "Adiciona efeitos temporários à HUD de efeitos de status do Token."
+      },
+      "UiButtonScale": {
+        "Name": "Escala dos Botões da Interface",
+        "Hint": "Ajusta a escala dos botões de controle."
+      },
+      "UiNavigationScale": {
+        "Name": "Escala da Navegação da Interface",
+        "Hint": "Ajusta a escala dos botões de navegação."
+      },
+      "UiChatMessage": {
+        "Name": "Modo Escuro nas Mensagens de Chat",
+        "Hint": "Ativa o modo escuro para as mensagens de chat."
+      },
+      "UiSidebar": {
+        "Name": "Barra Lateral Personalizada",
+        "Hint": "Ajustes visuais na barra lateral, incluindo fundo do chat, inversão da barra de rolagem e outras alterações menores."
+      }
+    },
+    "Macros": {
+      "ExportForSharing": {
+        "Label": "Exportar para Compartilhamento"
+      },
+      "HiddenCompendiums": {
+        "Label": "Side Effects - Compêndios Ocultos",
+        "Legend": "Selecione os Compêndios a Ocultar:"
+      }
+    }
+  }
+}
