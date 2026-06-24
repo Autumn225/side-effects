@@ -68,7 +68,7 @@ const settingsData = {
                 choices: () => CONFIG.statusEffects.reduce((obj, i) => {
                     obj[i.id] = {label: i.name};
                     return obj;
-                })
+                }, {})
             })
         ),
         default: [

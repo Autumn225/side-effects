@@ -297,6 +297,7 @@ async function addStatusEffects(collection) {
         effect.folder = folderId;
         if (effect.flags) effect.flags['side-effects'] = {statusId: effect.id};
         else effect.flags = {'side-effects': {statusId: effect.id}};
+        if (effect.reference) effect.description = `@Embed[${effect.reference} inline]`;
         await collection.documentClass.create(effect, {pack: collection.collection});
     }));
 }

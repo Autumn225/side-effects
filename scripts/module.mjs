@@ -12,4 +12,5 @@ Hooks.on('setup', () => {
 Hooks.once('ready', async () => {
     await macros.ready();
     await effectInterface.ready();
+    await macros.postReady();
 });
