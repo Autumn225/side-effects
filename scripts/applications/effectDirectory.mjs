@@ -10,8 +10,10 @@ class EffectDirectory extends DocumentDirectory {
     get collection() {
         if (!effectCollection) {
             let packId = game.settings.get('side-effects', 'effectCompendium');
+            if (!packId) return null;
             let pack = game.packs.get(packId);
             if (!pack) {
+                if (!game.settings.get('side-effects', 'effectCompendiumCreated')) return null;
                 if (!packId.includes('.')) ui.notifications.error('SIDEEFFECTS.EffectDirectory.InvalidCompendiumId', {localize: true, format: {compendium: packId}, permanent: true});
                 else if (packId.includes('world.')) {
                     this.promptCreateCompendium(packId);
@@ -61,6 +63,11 @@ class EffectDirectory extends DocumentDirectory {
                 await document.unsetFlag('side-effects', 'overriddenStatusData');
             } else delete CONFIG.statusEffects[statusId];
         } else {
+            let blacklistedStatusEffects = game.settings.get('side-effects', 'blacklistedStatusEffects');
+            if (blacklistedStatusEffects.includes(document.name)) {
+                ui.notifications.warn('SIDEEFFECTS.EffectDirectory.StatusEffectBlacklisted', {localize: true, format: {effect: document.name}});
+                return;
+            }
             statusId = document.name.charAt(0).toLowerCase() + document.name.titleCase().slice(1).replaceAll(' ', '');
             await document.setFlag('side-effects', 'statusId', statusId);
             if (CONFIG.statusEffects[statusId]) {
@@ -164,6 +171,7 @@ class EffectDirectory extends DocumentDirectory {
         };
     }
     async promptCreateCompendium(packId) {
+        if (!game.settings.get('side-effects', 'effectCompendiumCreated')) return;
         let compendiumId = packId.replace(/^[^.]*\./, '');
         let compendiumName = compendiumId.replace('-', ' ').titleCase();
         let prompt = `<p style="text-align: center;">` + _loc('SIDEEFFECTS.EffectDirectory.CreateCompendium.Prompt', {compendiumName: compendiumName, compendiumId: compendiumId}) + `</p>`;
@@ -193,8 +201,10 @@ class EffectDirectory extends DocumentDirectory {
     }
     _canRender(options) {
         let packId = game.settings.get('side-effects', 'effectCompendium');
+        if (!packId) return false;
         let pack = game.packs.get(packId);
         if (!pack) {
+            if (!game.settings.get('side-effects', 'effectCompendiumCreated')) return false;
             if (!packId.includes('.')) ui.notifications.error('SIDEEFFECTS.EffectDirectory.InvalidCompendiumId', {localize: true, format: {compendium: packId}});
             else if (packId.includes('world.')) this.promptCreateCompendium(packId);
             toggleEffectDirectory(false);
@@ -267,7 +277,8 @@ async function readyStatusEffects(enabled) {
     if (added) await game.settings.set('side-effects', 'statusEffectsAdded', true);
     let documents = await collection.getDocuments();
     if (!documents) return;
-    let statusDocuments = documents.filter(i => i.flags['side-effects']?.statusId && i.type === 'base');
+    let blacklistedStatusEffects = game.settings.get('side-effects', 'blacklistedStatusEffects');
+    let statusDocuments = documents.filter(i => i.flags['side-effects']?.statusId && i.type === 'base' && !blacklistedStatusEffects.includes(i.name));
     registerCustomStatusEffects(statusDocuments);
 }
 async function addStatusEffects(collection) {
@@ -279,7 +290,8 @@ async function addStatusEffects(collection) {
     let addStatusEffects = game.settings.get('side-effects', 'addStatusEffects');
     if (!addStatusEffects) return;
     let statusIds = statusDocuments.map(i => i.flags['side-effects'].statusId);
-    let statusEffects = foundry.utils.deepClone(CONFIG.statusEffects).filter(e => !statusIds.includes(e.id));
+    let blacklistedStatusEffects = game.settings.get('side-effects', 'blacklistedStatusEffects');
+    let statusEffects = foundry.utils.deepClone(CONFIG.statusEffects).filter(e => !statusIds.includes(e.id) && !blacklistedStatusEffects.includes(e.name));
     if (!statusEffects.length) return;
     let folder = collection.folders.find(f => f.name === _loc('SIDEEFFECTS.EffectDirectory.StatusEffectsFolder.Name'));
     if (!folder) {
@@ -305,12 +317,15 @@ function registerCustomStatusEffects(statusDocuments) {
     if (!statusDocuments.length) return;
     statusDocuments.forEach(effect => {
         let statusId = effect.flags['side-effects'].statusId;
-        CONFIG.statusEffects[statusId] = {
+        let status = CONFIG.statusEffects[statusId];
+        let statusData = {
             id: statusId,
             img: effect.img,
             name: effect.name,
             _id: ('sideeffects' + statusId).padEnd(16, '0').slice(0, 16)
         };
+        if (status) statusData = foundry.utils.mergeObject(foundry.utils.duplicate(status), statusData);
+        CONFIG.statusEffects[statusId] = statusData;
     });
 }
 function preCreateActiveEffect(effect, updates, options, userId) {
@@ -336,7 +351,8 @@ function init() {
 }
 function setup() {
     let compendiumCreated = game.settings.get('side-effects', 'effectCompendiumCreated');
-    if (!compendiumCreated) {
+    let compendium = game.packs.get(game.settings.get('side-effects', 'effectCompendium'));
+    if (!compendium && !compendiumCreated) {
         foundry.documents.collections.CompendiumCollection.createCompendium({
             label: 'Side Effects',
             name: 'side-effects',

@@ -1,10 +1,10 @@
 function itemContext(app, options) {
     let exportIdx = options.findIndex(i => i.label === 'SIDEBAR.Export');
-    if (exportIdx === -1) exportIdx = options.length - 1;
+    if (exportIdx === -1) return;
     let option = {
         label: 'SIDEEFFECTS.Macros.ExportForSharing.Label',
         icon: '<i class="fas fa-file-export"></i>',
-        visible: li => game.items.get(li.dataset.entryId).isOwner,
+        visible: li => game.items.get(li.dataset.entryId)?.isOwner,
         onClick: async li => {
             let entryId = li.dataset.entryId;
             let item = game.items.get(entryId);
@@ -30,11 +30,11 @@ function exportItemToJSON(document) {
 }
 function actorContext(app, options) {
     let exportIdx = options.findIndex(i => i.label === 'SIDEBAR.Export');
-    if (exportIdx === -1) exportIdx = options.length - 1;
+    if (exportIdx === -1) return;
     let option = {
         label: 'SIDEEFFECTS.Macros.ExportForSharing.Label',
         icon: '<i class="fas fa-file-export"></i>',
-        visible: li => game.actors.get(li.dataset.entryId).isOwner,
+        visible: li => game.actors.get(li.dataset.entryId)?.isOwner,
         onClick: async li => {
             let entryId = li.dataset.entryId;
             let actor = game.actors.get(entryId);

@@ -152,8 +152,11 @@ const settingsData = {
         default: false,
         scope: 'client',
         onChange: value => customUi.customChatMessage(value)
+    },
+    blacklistedStatusEffects: {
+        type: Array,
+        default: ['Exhaustion']
     }
-
 };
 const menusData = {
     hiddenCompendiums: {

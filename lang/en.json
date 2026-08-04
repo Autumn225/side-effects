@@ -12,7 +12,8 @@
       },
       "StatusEffectsFolder": {
         "Name": "Status Effects"
-      }
+      },
+      "StatusEffectBlacklisted": "Effect \"{effect}\" is blacklisted from being a custom status effect, this is intentional."
     },
     "Settings": {
       "AddStatusEffects": {
