@@ -12,7 +12,8 @@
       },
       "StatusEffectsFolder": {
         "Name": "Efeitos de Status"
-      }
+      },
+      "StatusEffectBlacklisted": "O efeito \"{effect}\" está na lista de exclusão de efeitos de status personalizados. Isso é intencional."
     },
     "Settings": {
       "AddStatusEffects": {
