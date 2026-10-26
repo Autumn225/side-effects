@@ -341,6 +341,7 @@ function preCreateActiveEffect(effect, updates, options, userId) {
     statusData.statuses = updates.statuses;
     delete statusData._id;
     delete statusData.origin;
+    delete statusData.type;
     effect.updateSource(statusData);
 }
 // Hooks
