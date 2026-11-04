@@ -22,6 +22,12 @@
             "name": "Português (Brasil)",
             "path": "lang/pt-BR.json",
             "flags": {}
+        },
+        {
+            "lang": "cs",
+            "name": "Čeština",
+            "path": "lang/cs.json",
+            "flags": {}
         }
     ],
     "styles": [
