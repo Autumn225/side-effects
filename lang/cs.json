@@ -1,0 +1,91 @@
+{
+  "SIDEEFFECTS": {
+    "NAME": "Side Effects",
+    "EffectDirectory": {
+      "AddStatusEffect": "Přidat mezi stavové efekty",
+      "RemoveStatusEffect": "Odebrat ze stavových efektů",
+      "InvalidCompendiumId": "Side Effects | Kompendium efektů '{compendium}' má neplatné ID kompendia. Oprav nastavení kompendia efektů.",
+      "InvalidCompendium": "Side Effects | Kompendium efektů '{compendium}' je neplatné, případně neexistuje. Oprav kompendium či nastavení kompendia efektů.",
+      "CreateCompendium": {
+        "Prompt": "Kompendium efektů '{compendiumId}' neexistuje. Rozhraní efektů se nenačte. Chceš automaticky vytvořit nové kompendium s názvem '{compendiumName}' a znovu načíst? ",
+        "Title": "Side Effects | Vytvořit kompendium efektů"
+      },
+      "StatusEffectsFolder": {
+        "Name": "Stavové efekty"
+      },
+      "StatusEffectBlacklisted": "Efekt \"{effect}\" je na černé listině a nelze jej použít jako vlastní stavový efekt; jedná se o záměrné opatření."
+    },
+    "Settings": {
+      "AddStatusEffects": {
+        "Name": "Přidat stavové efekty?",
+        "Hint": "Po zaškrtnutí budou jednorázově přidány všechny stavové efekty do kompendia efektů. "
+      },
+      "DisableSpecialEffects": {
+        "Name": "Zakázat zvláštní efekty?",
+        "Hint": "Po zaškrtnutí nebudou stavy oslepení a neviditelnosti používat vizuální efekty."
+      },
+      "EffectCompendium": {
+        "Name": "ID kompendia efektů",
+        "Hint": "ID kompendia propojeného s Rozhraním efektů. Chceš-li zkopírovat ID kompendia, otevři kompendium a klikni na knihu vpravo nahoře. ID vlož sem. Výchozí hodnota je 'world.side-effects'."
+      },
+      "EffectInterfacePlacement": {
+        "Name": "Umístění Rozhraní efektů",
+        "Hint": "Záložka postranního panelu, za kterou se Rozhraní efektů umístí."
+      },
+      "EffectInterfaceEnabled": {
+        "Name": "Povolit Rozhraní efektů?",
+        "Hint": "Povolí Rozhraní efektů, adresář dokumentů v postranním panelu propojený s kompendiem. Umožňuje přizpůsobovat stavové efekty a správu efektů."
+      },
+      "ExportForSharing": {
+        "Name": "Přidat 'Export' pro sdílení?",
+        "Hint": "Po zaškrtnutí bude přidán do kontextových nabídek adresářů položek a aktérů volbu pro export bez popisů."
+      },
+      "HiddenCompendiums": {
+        "Name": "Skrytá kompendia",
+        "Label": "Nastavit skrytá kompendia",
+        "Hint": "Vybraná kompendia se nebudou zobrazovat v adresáři kompendií."
+      },
+      "RemovedStatusEffects": {
+        "Name": "Odebrané stavové efekty",
+        "Hint": "Zvol stavové efekty, které se mají odstranit."
+      },
+      "RemoveStatusEffectsFromHud": {
+        "Name": "Odebrat stavové efekty z HUDu tokenu?",
+        "Hint": "Po zaškrtnutí nebudou zvolené stavové efekty zobrazovány v HUDu tokenu."
+      },
+      "ReplaceStatusEffectIcons": {
+        "Name": "Nahradit ikony stavových efektů?",
+        "Hint": "Po zaškrtnutí budou nahrazeny některé výchozí ikony stavových efektů. Změny z Rozhraní efektů budou stále respektovány."
+      },
+      "TemporaryEffectHud": {
+        "Name": "Dočasné efekty v HUDu tokenu?",
+        "Hint": "Po zaškrtnutí budou do HUDu tokenu přidány dočasné stavové efekty tokenu."
+      },
+      "UiButtonScale": {
+        "Name": "Měřítko tlačítek UI",
+        "Hint": "Mění velikost ovládacích tlačítek."
+      },
+      "UiNavigationScale": {
+        "Name": "Měřítko navigace UI",
+        "Hint": "Mění velikost navigačních tlačítek."
+      },
+      "UiChatMessage": {
+        "Name": "Tmavý režim zpráv v chatu?",
+        "Hint": "Zaškrtnutím bude povolen tmavý režim zpráv v chatu."
+      },
+      "UiSidebar": {
+        "Name": "Vlastní postranní panel?",
+        "Hint": "Zaškrtnutí nastaví vizuální úpravy postranního panelu včetně pozadí chatu, převrácení posuvníku a dalších drobných změn."
+      }
+    },
+    "Macros": {
+      "ExportForSharing": {
+        "Label": "Export pro sdílení"
+      },
+      "HiddenCompendiums": {
+        "Label": "Side Effects (skrytá kompendia)",
+        "Legend": "Zvol kompendia ke skrytí:"
+      }
+    }
+  }
+}
